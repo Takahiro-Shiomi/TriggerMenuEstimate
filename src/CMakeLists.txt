@@ -20,6 +20,7 @@ add_library(src
     TriggerMenuEstimateTGC.cxx
     TriggerMenuEstimateRPC.cxx
     TriggerMenuEstimateHotRoI.cxx
+    TriggerMenuEstimateInner.cxx
 )
 target_include_directories(src
     PUBLIC 

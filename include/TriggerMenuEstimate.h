@@ -43,6 +43,21 @@ public :
    vector<int>     *muon_charge;
    vector<int>     *muon_author;
    vector<int>     *muon_Type;
+   Int_t           museg_n;
+   vector<float>   *museg_x;
+   vector<float>   *museg_y;
+   vector<float>   *museg_z;
+   vector<float>   *museg_px;
+   vector<float>   *museg_py;
+   vector<float>   *museg_pz;
+   vector<float>   *museg_t0;
+   vector<float>   *museg_t0error;
+   vector<float>   *museg_chi2;
+   vector<float>   *museg_ndof;
+   vector<int>     *museg_sector;
+   vector<int>     *museg_stationName;
+   vector<int>     *museg_stationEta;
+   vector<int>     *museg_author;
    Int_t           ext_mu_n;
    vector<int>     *ext_mu_type;
    vector<int>     *ext_mu_index;
@@ -56,6 +71,60 @@ public :
    vector<vector<float> > *ext_mu_targetPxVec;
    vector<vector<float> > *ext_mu_targetPyVec;
    vector<vector<float> > *ext_mu_targetPzVec;
+   Int_t           TGC_prd_n;
+   vector<float>   *TGC_prd_x;
+   vector<float>   *TGC_prd_y;
+   vector<float>   *TGC_prd_z;
+   vector<float>   *TGC_prd_shortWidth;
+   vector<float>   *TGC_prd_longWidth;
+   vector<float>   *TGC_prd_length;
+   vector<int>     *TGC_prd_isStrip;
+   vector<int>     *TGC_prd_gasGap;
+   vector<int>     *TGC_prd_channel;
+   vector<int>     *TGC_prd_eta;
+   vector<int>     *TGC_prd_phi;
+   vector<int>     *TGC_prd_station;
+   vector<int>     *TGC_prd_bunch;
+   Int_t           RPC_prd_n;
+   vector<float>   *RPC_prd_x;
+   vector<float>   *RPC_prd_y;
+   vector<float>   *RPC_prd_z;
+   vector<float>   *RPC_prd_x2;
+   vector<float>   *RPC_prd_y2;
+   vector<float>   *RPC_prd_z2;
+   vector<float>   *RPC_prd_time;
+   vector<int>     *RPC_prd_triggerInfo;
+   vector<int>     *RPC_prd_ambiguityFlag;
+   vector<int>     *RPC_prd_measuresPhi;
+   vector<int>     *RPC_prd_inRibs;
+   vector<int>     *RPC_prd_station;
+   vector<int>     *RPC_prd_stationEta;
+   vector<int>     *RPC_prd_stationPhi;
+   vector<int>     *RPC_prd_doubletR;
+   vector<int>     *RPC_prd_doubletZ;
+   vector<double>  *RPC_prd_stripWidth;
+   vector<double>  *RPC_prd_stripLength;
+   vector<int>     *RPC_prd_gasGap;
+   vector<int>     *RPC_prd_channel;
+   Int_t           TILE_murcv_trig_n;
+   vector<int>     *TILE_murcv_trig_mod;
+   vector<int>     *TILE_murcv_trig_part;
+   vector<bool>    *TILE_murcv_trig_bit0;
+   vector<bool>    *TILE_murcv_trig_bit1;
+   vector<bool>    *TILE_murcv_trig_bit2;
+   vector<bool>    *TILE_murcv_trig_bit3;
+   Int_t           TILE_murcv_raw_n;
+   vector<float>   *TILE_murcv_raw_count;
+   vector<float>   *TILE_murcv_raw_energy;
+   vector<int>     *TILE_murcv_raw_ros;
+   vector<int>     *TILE_murcv_raw_drawer;
+   vector<int>     *TILE_murcv_raw_channel;
+   Int_t           TILE_murcv_digit_n;
+   vector<int>     *TILE_murcv_digit_nSamples;
+   vector<int>     *TILE_murcv_digit_ros;
+   vector<int>     *TILE_murcv_digit_drawer;
+   vector<int>     *TILE_murcv_digit_channel;
+   vector<vector<float> > *TILE_murcv_digit_sampleVec;
    Int_t           tgc_coin_n;
    vector<float>   *tgc_coin_x_In;
    vector<float>   *tgc_coin_y_In;
@@ -139,6 +208,21 @@ public :
    TBranch        *b_muon_charge;   //!
    TBranch        *b_muon_author;   //!
    TBranch        *b_muon_Type;   //!
+   TBranch        *b_museg_n;   //!
+   TBranch        *b_museg_x;   //!
+   TBranch        *b_museg_y;   //!
+   TBranch        *b_museg_z;   //!
+   TBranch        *b_museg_px;   //!
+   TBranch        *b_museg_py;   //!
+   TBranch        *b_museg_pz;   //!
+   TBranch        *b_museg_t0;   //!
+   TBranch        *b_museg_t0error;   //!
+   TBranch        *b_museg_chi2;   //!
+   TBranch        *b_museg_ndof;   //!
+   TBranch        *b_museg_sector;   //!
+   TBranch        *b_museg_stationName;   //!
+   TBranch        *b_museg_stationEta;   //!
+   TBranch        *b_museg_author;   //!
    TBranch        *b_ext_mu_n;   //!
    TBranch        *b_ext_mu_type;   //!
    TBranch        *b_ext_mu_index;   //!
@@ -152,6 +236,60 @@ public :
    TBranch        *b_ext_mu_targetPxVec;   //!
    TBranch        *b_ext_mu_targetPyVec;   //!
    TBranch        *b_ext_mu_targetPzVec;   //!
+   TBranch        *b_TGC_prd_n;   //!
+   TBranch        *b_TGC_prd_x;   //!
+   TBranch        *b_TGC_prd_y;   //!
+   TBranch        *b_TGC_prd_z;   //!
+   TBranch        *b_TGC_prd_shortWidth;   //!
+   TBranch        *b_TGC_prd_longWidth;   //!
+   TBranch        *b_TGC_prd_length;   //!
+   TBranch        *b_TGC_prd_isStrip;   //!
+   TBranch        *b_TGC_prd_gasGap;   //!
+   TBranch        *b_TGC_prd_channel;   //!
+   TBranch        *b_TGC_prd_eta;   //!
+   TBranch        *b_TGC_prd_phi;   //!
+   TBranch        *b_TGC_prd_station;   //!
+   TBranch        *b_TGC_prd_bunch;   //!
+   TBranch        *b_RPC_prd_n;   //!
+   TBranch        *b_RPC_prd_x;   //!
+   TBranch        *b_RPC_prd_y;   //!
+   TBranch        *b_RPC_prd_z;   //!
+   TBranch        *b_RPC_prd_x2;   //!
+   TBranch        *b_RPC_prd_y2;   //!
+   TBranch        *b_RPC_prd_z2;   //!
+   TBranch        *b_RPC_prd_time;   //!
+   TBranch        *b_RPC_prd_triggerInfo;   //!
+   TBranch        *b_RPC_prd_ambiguityFlag;   //!
+   TBranch        *b_RPC_prd_measuresPhi;   //!
+   TBranch        *b_RPC_prd_inRibs;   //!
+   TBranch        *b_RPC_prd_station;   //!
+   TBranch        *b_RPC_prd_stationEta;   //!
+   TBranch        *b_RPC_prd_stationPhi;   //!
+   TBranch        *b_RPC_prd_doubletR;   //!
+   TBranch        *b_RPC_prd_doubletZ;   //!
+   TBranch        *b_RPC_prd_stripWidth;   //!
+   TBranch        *b_RPC_prd_stripLength;   //!
+   TBranch        *b_RPC_prd_gasGap;   //!
+   TBranch        *b_RPC_prd_channel;   //!
+   TBranch        *b_TILE_murcv_trig_n;   //!
+   TBranch        *b_TILE_murcv_trig_mod;   //!
+   TBranch        *b_TILE_murcv_trig_part;   //!
+   TBranch        *b_TILE_murcv_trig_bit0;   //!
+   TBranch        *b_TILE_murcv_trig_bit1;   //!
+   TBranch        *b_TILE_murcv_trig_bit2;   //!
+   TBranch        *b_TILE_murcv_trig_bit3;   //!
+   TBranch        *b_TILE_murcv_raw_n;   //!
+   TBranch        *b_TILE_murcv_raw_count;   //!
+   TBranch        *b_TILE_murcv_raw_energy;   //!
+   TBranch        *b_TILE_murcv_raw_ros;   //!
+   TBranch        *b_TILE_murcv_raw_drawer;   //!
+   TBranch        *b_TILE_murcv_raw_channel;   //!
+   TBranch        *b_TILE_murcv_digit_n;   //!
+   TBranch        *b_TILE_murcv_digit_nSamples;   //!
+   TBranch        *b_TILE_murcv_digit_ros;   //!
+   TBranch        *b_TILE_murcv_digit_drawer;   //!
+   TBranch        *b_TILE_murcv_digit_channel;   //!
+   TBranch        *b_TILE_murcv_digit_sampleVec;   //!
    TBranch        *b_tgc_coin_n;   //!
    TBranch        *b_tgc_coin_x_In;   //!
    TBranch        *b_tgc_coin_y_In;   //!
@@ -234,6 +372,16 @@ public :
    vector<int>   roi_side;
    vector<bool>  roi_ovlp;
    vector<int>   roi_charge;
+   vector<bool>  roi_station;
+   vector<bool>  roi_hotroi;
+   vector<int>   roi_inner;
+
+   //Histgram
+   TH1D *h_events;
+   TH1D *A_eta;
+   TH2D *T_eta;
+   TH2D *B_eta;
+   TH1D *N_eta[15];
 
    TriggerMenuEstimate(TTree *tree=0);
    virtual ~TriggerMenuEstimate();
@@ -254,8 +402,9 @@ public :
    virtual bool     ForwardForward(int roi1,int roi2,int sec1,int sec2);
    virtual bool     ForwardEndcap(int source1,int source2,int a,int b,int c,int d);
    virtual bool     BarrelEndcap(int side1,int side2,int source1,int source2,int a,int b,int c,int d);
+   virtual void     Tile();
    virtual void     Clear();
-   virtual void     Loop();
+   virtual void     Loop(int Nevents);
    virtual Bool_t   Notify();
    virtual void     Show(Long64_t entry = -1);
 };
@@ -321,6 +470,20 @@ void TriggerMenuEstimate::Init(TTree *tree)
    muon_charge = 0;
    muon_author = 0;
    muon_Type = 0;
+   museg_x = 0;
+   museg_y = 0;
+   museg_z = 0;
+   museg_px = 0;
+   museg_py = 0;
+   museg_pz = 0;
+   museg_t0 = 0;
+   museg_t0error = 0;
+   museg_chi2 = 0;
+   museg_ndof = 0;
+   museg_sector = 0;
+   museg_stationName = 0;
+   museg_stationEta = 0;
+   museg_author = 0;
    ext_mu_type = 0;
    ext_mu_index = 0;
    ext_mu_size = 0;
@@ -333,6 +496,55 @@ void TriggerMenuEstimate::Init(TTree *tree)
    ext_mu_targetPxVec = 0;
    ext_mu_targetPyVec = 0;
    ext_mu_targetPzVec = 0;
+   TGC_prd_x = 0;
+   TGC_prd_y = 0;
+   TGC_prd_z = 0;
+   TGC_prd_shortWidth = 0;
+   TGC_prd_longWidth = 0;
+   TGC_prd_length = 0;
+   TGC_prd_isStrip = 0;
+   TGC_prd_gasGap = 0;
+   TGC_prd_channel = 0;
+   TGC_prd_eta = 0;
+   TGC_prd_phi = 0;
+   TGC_prd_station = 0;
+   TGC_prd_bunch = 0;
+   RPC_prd_x = 0;
+   RPC_prd_y = 0;
+   RPC_prd_z = 0;
+   RPC_prd_x2 = 0;
+   RPC_prd_y2 = 0;
+   RPC_prd_z2 = 0;
+   RPC_prd_time = 0;
+   RPC_prd_triggerInfo = 0;
+   RPC_prd_ambiguityFlag = 0;
+   RPC_prd_measuresPhi = 0;
+   RPC_prd_inRibs = 0;
+   RPC_prd_station = 0;
+   RPC_prd_stationEta = 0;
+   RPC_prd_stationPhi = 0;
+   RPC_prd_doubletR = 0;
+   RPC_prd_doubletZ = 0;
+   RPC_prd_stripWidth = 0;
+   RPC_prd_stripLength = 0;
+   RPC_prd_gasGap = 0;
+   RPC_prd_channel = 0;
+   TILE_murcv_trig_mod = 0;
+   TILE_murcv_trig_part = 0;
+   TILE_murcv_trig_bit0 = 0;
+   TILE_murcv_trig_bit1 = 0;
+   TILE_murcv_trig_bit2 = 0;
+   TILE_murcv_trig_bit3 = 0;
+   TILE_murcv_raw_count = 0;
+   TILE_murcv_raw_energy = 0;
+   TILE_murcv_raw_ros = 0;
+   TILE_murcv_raw_drawer = 0;
+   TILE_murcv_raw_channel = 0;
+   TILE_murcv_digit_nSamples = 0;
+   TILE_murcv_digit_ros = 0;
+   TILE_murcv_digit_drawer = 0;
+   TILE_murcv_digit_channel = 0;
+   TILE_murcv_digit_sampleVec = 0;
    tgc_coin_x_In = 0;
    tgc_coin_y_In = 0;
    tgc_coin_z_In = 0;
@@ -415,6 +627,21 @@ void TriggerMenuEstimate::Init(TTree *tree)
    fChain->SetBranchAddress("muon_charge", &muon_charge, &b_muon_charge);
    fChain->SetBranchAddress("muon_author", &muon_author, &b_muon_author);
    fChain->SetBranchAddress("muon_Type", &muon_Type, &b_muon_Type);
+   fChain->SetBranchAddress("museg_n", &museg_n, &b_museg_n);
+   fChain->SetBranchAddress("museg_x", &museg_x, &b_museg_x);
+   fChain->SetBranchAddress("museg_y", &museg_y, &b_museg_y);
+   fChain->SetBranchAddress("museg_z", &museg_z, &b_museg_z);
+   fChain->SetBranchAddress("museg_px", &museg_px, &b_museg_px);
+   fChain->SetBranchAddress("museg_py", &museg_py, &b_museg_py);
+   fChain->SetBranchAddress("museg_pz", &museg_pz, &b_museg_pz);
+   fChain->SetBranchAddress("museg_t0", &museg_t0, &b_museg_t0);
+   fChain->SetBranchAddress("museg_t0error", &museg_t0error, &b_museg_t0error);
+   fChain->SetBranchAddress("museg_chi2", &museg_chi2, &b_museg_chi2);
+   fChain->SetBranchAddress("museg_ndof", &museg_ndof, &b_museg_ndof);
+   fChain->SetBranchAddress("museg_sector", &museg_sector, &b_museg_sector);
+   fChain->SetBranchAddress("museg_stationName", &museg_stationName, &b_museg_stationName);
+   fChain->SetBranchAddress("museg_stationEta", &museg_stationEta, &b_museg_stationEta);
+   fChain->SetBranchAddress("museg_author", &museg_author, &b_museg_author);
    fChain->SetBranchAddress("ext_mu_n", &ext_mu_n, &b_ext_mu_n);
    fChain->SetBranchAddress("ext_mu_type", &ext_mu_type, &b_ext_mu_type);
    fChain->SetBranchAddress("ext_mu_index", &ext_mu_index, &b_ext_mu_index);
@@ -428,6 +655,60 @@ void TriggerMenuEstimate::Init(TTree *tree)
    fChain->SetBranchAddress("ext_mu_targetPxVec", &ext_mu_targetPxVec, &b_ext_mu_targetPxVec);
    fChain->SetBranchAddress("ext_mu_targetPyVec", &ext_mu_targetPyVec, &b_ext_mu_targetPyVec);
    fChain->SetBranchAddress("ext_mu_targetPzVec", &ext_mu_targetPzVec, &b_ext_mu_targetPzVec);
+   fChain->SetBranchAddress("TGC_prd_n", &TGC_prd_n, &b_TGC_prd_n);
+   fChain->SetBranchAddress("TGC_prd_x", &TGC_prd_x, &b_TGC_prd_x);
+   fChain->SetBranchAddress("TGC_prd_y", &TGC_prd_y, &b_TGC_prd_y);
+   fChain->SetBranchAddress("TGC_prd_z", &TGC_prd_z, &b_TGC_prd_z);
+   fChain->SetBranchAddress("TGC_prd_shortWidth", &TGC_prd_shortWidth, &b_TGC_prd_shortWidth);
+   fChain->SetBranchAddress("TGC_prd_longWidth", &TGC_prd_longWidth, &b_TGC_prd_longWidth);
+   fChain->SetBranchAddress("TGC_prd_length", &TGC_prd_length, &b_TGC_prd_length);
+   fChain->SetBranchAddress("TGC_prd_isStrip", &TGC_prd_isStrip, &b_TGC_prd_isStrip);
+   fChain->SetBranchAddress("TGC_prd_gasGap", &TGC_prd_gasGap, &b_TGC_prd_gasGap);
+   fChain->SetBranchAddress("TGC_prd_channel", &TGC_prd_channel, &b_TGC_prd_channel);
+   fChain->SetBranchAddress("TGC_prd_eta", &TGC_prd_eta, &b_TGC_prd_eta);
+   fChain->SetBranchAddress("TGC_prd_phi", &TGC_prd_phi, &b_TGC_prd_phi);
+   fChain->SetBranchAddress("TGC_prd_station", &TGC_prd_station, &b_TGC_prd_station);
+   fChain->SetBranchAddress("TGC_prd_bunch", &TGC_prd_bunch, &b_TGC_prd_bunch);
+   fChain->SetBranchAddress("RPC_prd_n", &RPC_prd_n, &b_RPC_prd_n);
+   fChain->SetBranchAddress("RPC_prd_x", &RPC_prd_x, &b_RPC_prd_x);
+   fChain->SetBranchAddress("RPC_prd_y", &RPC_prd_y, &b_RPC_prd_y);
+   fChain->SetBranchAddress("RPC_prd_z", &RPC_prd_z, &b_RPC_prd_z);
+   fChain->SetBranchAddress("RPC_prd_x2", &RPC_prd_x2, &b_RPC_prd_x2);
+   fChain->SetBranchAddress("RPC_prd_y2", &RPC_prd_y2, &b_RPC_prd_y2);
+   fChain->SetBranchAddress("RPC_prd_z2", &RPC_prd_z2, &b_RPC_prd_z2);
+   fChain->SetBranchAddress("RPC_prd_time", &RPC_prd_time, &b_RPC_prd_time);
+   fChain->SetBranchAddress("RPC_prd_triggerInfo", &RPC_prd_triggerInfo, &b_RPC_prd_triggerInfo);
+   fChain->SetBranchAddress("RPC_prd_ambiguityFlag", &RPC_prd_ambiguityFlag, &b_RPC_prd_ambiguityFlag);
+   fChain->SetBranchAddress("RPC_prd_measuresPhi", &RPC_prd_measuresPhi, &b_RPC_prd_measuresPhi);
+   fChain->SetBranchAddress("RPC_prd_inRibs", &RPC_prd_inRibs, &b_RPC_prd_inRibs);
+   fChain->SetBranchAddress("RPC_prd_station", &RPC_prd_station, &b_RPC_prd_station);
+   fChain->SetBranchAddress("RPC_prd_stationEta", &RPC_prd_stationEta, &b_RPC_prd_stationEta);
+   fChain->SetBranchAddress("RPC_prd_stationPhi", &RPC_prd_stationPhi, &b_RPC_prd_stationPhi);
+   fChain->SetBranchAddress("RPC_prd_doubletR", &RPC_prd_doubletR, &b_RPC_prd_doubletR);
+   fChain->SetBranchAddress("RPC_prd_doubletZ", &RPC_prd_doubletZ, &b_RPC_prd_doubletZ);
+   fChain->SetBranchAddress("RPC_prd_stripWidth", &RPC_prd_stripWidth, &b_RPC_prd_stripWidth);
+   fChain->SetBranchAddress("RPC_prd_stripLength", &RPC_prd_stripLength, &b_RPC_prd_stripLength);
+   fChain->SetBranchAddress("RPC_prd_gasGap", &RPC_prd_gasGap, &b_RPC_prd_gasGap);
+   fChain->SetBranchAddress("RPC_prd_channel", &RPC_prd_channel, &b_RPC_prd_channel);
+   fChain->SetBranchAddress("TILE_murcv_trig_n", &TILE_murcv_trig_n, &b_TILE_murcv_trig_n);
+   fChain->SetBranchAddress("TILE_murcv_trig_mod", &TILE_murcv_trig_mod, &b_TILE_murcv_trig_mod);
+   fChain->SetBranchAddress("TILE_murcv_trig_part", &TILE_murcv_trig_part, &b_TILE_murcv_trig_part);
+   fChain->SetBranchAddress("TILE_murcv_trig_bit0", &TILE_murcv_trig_bit0, &b_TILE_murcv_trig_bit0);
+   fChain->SetBranchAddress("TILE_murcv_trig_bit1", &TILE_murcv_trig_bit1, &b_TILE_murcv_trig_bit1);
+   fChain->SetBranchAddress("TILE_murcv_trig_bit2", &TILE_murcv_trig_bit2, &b_TILE_murcv_trig_bit2);
+   fChain->SetBranchAddress("TILE_murcv_trig_bit3", &TILE_murcv_trig_bit3, &b_TILE_murcv_trig_bit3);
+   fChain->SetBranchAddress("TILE_murcv_raw_n", &TILE_murcv_raw_n, &b_TILE_murcv_raw_n);
+   fChain->SetBranchAddress("TILE_murcv_raw_count", &TILE_murcv_raw_count, &b_TILE_murcv_raw_count);
+   fChain->SetBranchAddress("TILE_murcv_raw_energy", &TILE_murcv_raw_energy, &b_TILE_murcv_raw_energy);
+   fChain->SetBranchAddress("TILE_murcv_raw_ros", &TILE_murcv_raw_ros, &b_TILE_murcv_raw_ros);
+   fChain->SetBranchAddress("TILE_murcv_raw_drawer", &TILE_murcv_raw_drawer, &b_TILE_murcv_raw_drawer);
+   fChain->SetBranchAddress("TILE_murcv_raw_channel", &TILE_murcv_raw_channel, &b_TILE_murcv_raw_channel);
+   fChain->SetBranchAddress("TILE_murcv_digit_n", &TILE_murcv_digit_n, &b_TILE_murcv_digit_n);
+   fChain->SetBranchAddress("TILE_murcv_digit_nSamples", &TILE_murcv_digit_nSamples, &b_TILE_murcv_digit_nSamples);
+   fChain->SetBranchAddress("TILE_murcv_digit_ros", &TILE_murcv_digit_ros, &b_TILE_murcv_digit_ros);
+   fChain->SetBranchAddress("TILE_murcv_digit_drawer", &TILE_murcv_digit_drawer, &b_TILE_murcv_digit_drawer);
+   fChain->SetBranchAddress("TILE_murcv_digit_channel", &TILE_murcv_digit_channel, &b_TILE_murcv_digit_channel);
+   fChain->SetBranchAddress("TILE_murcv_digit_sampleVec", &TILE_murcv_digit_sampleVec, &b_TILE_murcv_digit_sampleVec);
    fChain->SetBranchAddress("tgc_coin_n", &tgc_coin_n, &b_tgc_coin_n);
    fChain->SetBranchAddress("tgc_coin_x_In", &tgc_coin_x_In, &b_tgc_coin_x_In);
    fChain->SetBranchAddress("tgc_coin_y_In", &tgc_coin_y_In, &b_tgc_coin_y_In);
@@ -500,6 +781,7 @@ void TriggerMenuEstimate::Init(TTree *tree)
    fChain->SetBranchAddress("TGC_Run3_Phi", &TGC_Run3_Phi, &b_TGC_Run3_Phi);
    fChain->SetBranchAddress("TGC_Run3_Charge", &TGC_Run3_Charge, &b_TGC_Run3_Charge);
    Notify();
+   InitHist();
 }
 
 Bool_t TriggerMenuEstimate::Notify()

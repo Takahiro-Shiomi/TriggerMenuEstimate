@@ -14,31 +14,12 @@ void TriggerMenuEstimate::TGC_Run3()
 {
     for(int j=0;j!=TGC_Run3_n;j++){
         if(TGC_Run3_type->at(j)!=2)continue;
-        //if(TGC_Run3_station->at(j)!=0)continue;
-         
+
+        int station = TGC_Run3_station->at(j);
         bool flag = HotRoI(j);
-        if(flag){continue;}
 
         int TGC_pt=TGC_Run3_pt->at(j);
-        float Run3_pt=9999999;
-        //15 threshold
-        if(TGC_pt==1){Run3_pt=3;}
-        if(TGC_pt==2){Run3_pt=4;}
-        if(TGC_pt==3){Run3_pt=5;}
-        if(TGC_pt==4){Run3_pt=6;}
-        if(TGC_pt==5){Run3_pt=7;}
-        if(TGC_pt==6){Run3_pt=8;}
-        if(TGC_pt==7){Run3_pt=9;}
-        if(TGC_pt==8){Run3_pt=10;}
-        if(TGC_pt==9){Run3_pt=11;}
-        if(TGC_pt==10){Run3_pt=12;}
-        if(TGC_pt==11){Run3_pt=13;}
-        if(TGC_pt==12){Run3_pt=14;}
-        if(TGC_pt==13){Run3_pt=15;}
-        if(TGC_pt==14){Run3_pt=18;}
-        if(TGC_pt==15){Run3_pt=20;}
-        if(Run3_pt>20){continue;}
-        //if(Run3_pt>20 || Run3_pt==3){continue;}
+        if(TGC_pt>15 || TGC_pt<1){continue;}
 
         float TGC_x=TGC_Run3_x->at(j);
         float TGC_y=TGC_Run3_y->at(j);
@@ -63,7 +44,7 @@ void TriggerMenuEstimate::TGC_Run3()
             else if((*TGC_Run3_PhiSector)[j]==24){TGC_sector=0;}
         }
 
-        roi_pt.push_back(Run3_pt);
+        roi_pt.push_back(TGC_pt);
         roi_eta.push_back(TGC_eta);
         roi_phi.push_back(TGC_phi);
         roi_roi.push_back(TGC_roi);
@@ -80,5 +61,9 @@ void TriggerMenuEstimate::TGC_Run3()
             else if((*TGC_Run3_Charge)[j] == 1){ roi_charge.push_back(0); }
             else { roi_charge.push_back(2);}
         }
+        if(station==0){roi_station.push_back(true);}
+        if(station!=0){roi_station.push_back(false);}
+        roi_hotroi.push_back(flag);
+        roi_inner.push_back(2);
     } 
 }

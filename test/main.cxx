@@ -17,12 +17,13 @@ int main(int argc, char *argv[])
 
     tree1->Add(argv[1]);
     TString PdfLabel = argv[2];
+    Int_t limit_entry = atoi(argv[3]);
 
     TFile *fout = new TFile(Form("./rootfile/%s.root", PdfLabel.Data()), "recreate");
 
     TriggerMenuEstimate tls(tree1);
     std::cout<<"<<Loop START>>"<<std::endl;
-    tls.Loop();
+    tls.Loop(limit_entry);
     std::cout<<"<<Draw START>>"<<std::endl;
     tls.Draw("./pdf/Draw_" + PdfLabel + ".pdf");
     fout -> Write();

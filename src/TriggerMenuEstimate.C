@@ -8,20 +8,20 @@
 #include <stdlib.h>
 #include <typeinfo>
 
-void TriggerMenuEstimate::Loop()
+void TriggerMenuEstimate::Loop(int Nevents)
 {
    if (fChain == 0) return;
 
-   Long64_t nentries = fChain->GetEntriesFast();
+   int nLoop = (Nevents == -1) ? fChain->GetEntries() : Nevents;
 
    Long64_t nbytes = 0, nb = 0;
-   for (Long64_t jentry=0; jentry<nentries;jentry++) {
+   for (Long64_t jentry=0; jentry<nLoop;jentry++) {
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
       // if (Cut(ientry) < 0) continue;
-      if((int)jentry % ((int)nentries/10)==0){
-          std::cout<<"JOBS....."<<(int)jentry / ((int)nentries/100)<<"%....COMPLETE"<<std::endl;
+      if((int)jentry % ((int)nLoop/10)==0){
+          std::cout<<"JOBS....."<<(int)jentry / ((int)nLoop/100)<<"%....COMPLETE"<<std::endl;
       }
       FillHist();
    }
