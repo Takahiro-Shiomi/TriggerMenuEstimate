@@ -17,6 +17,7 @@ add_library(src
     TriggerMenuEstimateHist.cxx
     TriggerMenuEstimateHLT.cxx
     TriggerMenuEstimateOvlpRmvl.cxx
+    TriggerMenuEstimateOffline.cxx
     TriggerMenuEstimateTGC.cxx
     TriggerMenuEstimateRPC.cxx
     TriggerMenuEstimateHotRoI.cxx

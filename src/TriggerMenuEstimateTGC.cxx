@@ -14,6 +14,7 @@ void TriggerMenuEstimate::TGC_Run3()
 {
     for(int j=0;j!=TGC_Run3_n;j++){
         if(TGC_Run3_type->at(j)!=2)continue;
+        if(!TGC_Run3_IsEndcap->at(j))continue;
 
         int station = TGC_Run3_station->at(j);
         bool flag = HotRoI(j);
@@ -65,5 +66,6 @@ void TriggerMenuEstimate::TGC_Run3()
         if(station!=0){roi_station.push_back(false);}
         roi_hotroi.push_back(flag);
         roi_inner.push_back(2);
+        roi_match.push_back(false);
     } 
 }

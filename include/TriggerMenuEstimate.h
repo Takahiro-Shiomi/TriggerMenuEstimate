@@ -363,7 +363,18 @@ public :
    TBranch        *b_TGC_Run3_Charge;   //!
 
    //Parameter
-   vector<float> roi_pt;
+   vector<float> off_pt;
+   vector<float> off_eta;
+   vector<float> off_phi;
+
+   vector<int> RoI_pt;
+   vector<float> RoI_eta;
+   vector<float> RoI_phi;
+   vector<int>   RoI_sec;
+   vector<int>   RoI_roi;
+   vector<int>   RoI_inner;
+
+   vector<int> roi_pt;
    vector<float> roi_eta;
    vector<float> roi_phi;
    vector<int>   roi_roi;
@@ -375,13 +386,20 @@ public :
    vector<bool>  roi_station;
    vector<bool>  roi_hotroi;
    vector<int>   roi_inner;
+   vector<bool>  roi_match;
 
    //Histgram
-   TH1D *h_events;
-   TH1D *A_eta;
-   TH2D *T_eta;
-   TH2D *B_eta;
-   TH1D *N_eta[15];
+   TH1D *h_dr;
+   TH2D *A_etaphi[15];
+   TH2D *T_etaphi[15];
+   TH2D *B_etaphi[15];
+   TH2D *E_etaphi[15];
+   TH1D *A_eta[15];
+   TH1D *I_eta[15];
+   TH1D *E_eta[15];
+   TH1D *A_roi[15];
+   TH1D *I_roi[15];
+   TH1D *E_roi[15];
 
    TriggerMenuEstimate(TTree *tree=0);
    virtual ~TriggerMenuEstimate();
@@ -393,6 +411,8 @@ public :
    virtual void     FillHist();
    virtual void     Draw(TString pdf);
    virtual void     End();
+   virtual void     Match();
+   virtual bool     Offline();
    virtual bool     HLT();
    virtual bool     HotRoI(int tgc);
    virtual void     TGC_Run3();

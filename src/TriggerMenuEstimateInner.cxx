@@ -10,13 +10,14 @@ using namespace std;
 
 void TriggerMenuEstimate::Tile()
 {
-    for(int i=0;i!=(int)roi_pt.size();i++){
-        if(abs(roi_eta.at(i))<=1.3){
-            int r_sec = roi_sector.at(i);
+    for(int i=0;i!=(int)RoI_pt.size();i++){
+        A_etaphi[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i),RoI_phi.at(i));
+        if(abs(RoI_eta.at(i))<=1.9){
+            int r_sec = RoI_sec.at(i);
             bool coin = false;
             for(int tile=0;tile<TILE_murcv_trig_n;tile++){
-                if((*TILE_murcv_trig_part)[tile]==3 && !roi_side.at(i)){continue;}
-                if((*TILE_murcv_trig_part)[tile]==4 && roi_side.at(i)){continue;}
+                if((*TILE_murcv_trig_part)[tile]==3 && RoI_eta.at(i)<=0){continue;}
+                if((*TILE_murcv_trig_part)[tile]==4 && RoI_eta.at(i)>=0){continue;}
                 int t_sec = (*TILE_murcv_trig_mod)[tile];
 
                 if(r_sec>=2){
@@ -35,12 +36,12 @@ void TriggerMenuEstimate::Tile()
                 }
             }
             if(coin){
-                T_eta->Fill(roi_eta.at(i),roi_phi.at(i));
-                roi_inner.push_back(1);
+                T_etaphi[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i),RoI_phi.at(i));
+                RoI_inner.at(i)=1;
             }
             else{
-                B_eta->Fill(roi_eta.at(i),roi_phi.at(i));
-                roi_inner.push_back(0);
+                B_etaphi[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i),RoI_phi.at(i));
+                RoI_inner.at(i)=0;
             }
         }
     }

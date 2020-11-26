@@ -9,34 +9,31 @@ using namespace std;
 void TriggerMenuEstimate::FillHist()
 {
     Clear();
-    bool hlt = HLT();
-    if(hlt){
-        h_events->Fill(0);
+    bool off = Offline();
+    if(off){
         if(TGC_Run3_n>=1){TGC_Run3();}
         //if(muctpi_ndatawords>=1){RPC_Run3();}
         if(roi_pt.size()>=1){
-            h_events->Fill(1);
-            for(unsigned int i=0;i!=roi_pt.size();i++){A_eta->Fill(roi_eta.at(i),(float)1/(float)roi_eta.size());}
-
             OverlapRemoval();
-            Tile();
-
-            int can[15] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-            for(unsigned int i=0;i!=roi_pt.size();i++){
-                if(!roi_ovlp.at(i) && roi_station.at(i) && !roi_hotroi.at(i) && (roi_inner.at(i)==2 || roi_inner.at(i)==1)){
-                    for(unsigned int j=0;j!=15;j++){
-                        if(roi_pt.at(i)>=j+1){can[j] = can[j] + 1;}
-                    }
+            Match();
+            for(int i=0;i!=(int)roi_pt.size();i++){
+                if(!roi_ovlp.at(i) && roi_match.at(i) && !roi_hotroi.at(i)){
+                    RoI_eta.push_back(roi_eta.at(i));
+                    RoI_phi.push_back(roi_phi.at(i));
+                    RoI_pt.push_back(roi_pt.at(i));
+                    RoI_sec.push_back(roi_sector.at(i));
+                    RoI_roi.push_back(roi_roi.at(i));
+                    RoI_inner.push_back(roi_inner.at(i));
                 }
             }
-
-            for(unsigned int j=0;j!=15;j++){
-                if(can[j]>=1){
-                    h_events->Fill(j+2);
-                    for(unsigned int i=0;i!=roi_pt.size();i++){
-                        if(!roi_ovlp.at(i) && roi_station.at(i) && !roi_hotroi.at(i)){
-                            if(roi_pt.at(i)>=j+1){N_eta[j]->Fill(roi_eta.at(i),(float)1/(float)can[j]);}
-                        }
+            if(RoI_eta.size()!=0){
+                Tile();
+                for(int i=0;i!=(int)RoI_eta.size();i++){
+                    A_roi[RoI_pt.at(i)-1]->Fill(RoI_roi.at(i));
+                    A_eta[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i));
+                    if(RoI_inner.at(i)==1){
+                        I_roi[RoI_pt.at(i)-1]->Fill(RoI_roi.at(i));
+                        I_eta[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i));
                     }
                 }
             }
@@ -46,6 +43,10 @@ void TriggerMenuEstimate::FillHist()
 
 void TriggerMenuEstimate::Clear()
 {
+    off_eta.clear();
+    off_phi.clear();
+    off_pt.clear();
+
     roi_pt.clear();
     roi_eta.clear();
     roi_phi.clear();
@@ -58,4 +59,12 @@ void TriggerMenuEstimate::Clear()
     roi_station.clear();
     roi_hotroi.clear();
     roi_inner.clear();
+    roi_match.clear();
+
+    RoI_eta.clear();
+    RoI_pt.clear();
+    RoI_phi.clear();
+    RoI_sec.clear();
+    RoI_roi.clear();
+    RoI_inner.clear();
 }
