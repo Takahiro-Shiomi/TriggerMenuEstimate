@@ -63,7 +63,7 @@ void TriggerMenuEstimate::TGC_Run3()
         }
         if(station==0){roi_station.push_back(true);}
         if(station!=0){roi_station.push_back(false);}
-        roi_hotroi.push_back(flag);
+        roi_hotroi.push_back(false);
         roi_inner.push_back(2);
     } 
 }

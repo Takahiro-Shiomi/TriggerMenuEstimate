@@ -363,7 +363,7 @@ public :
    TBranch        *b_TGC_Run3_Charge;   //!
 
    //Parameter
-   vector<float> roi_pt;
+   vector<int> roi_pt;
    vector<float> roi_eta;
    vector<float> roi_phi;
    vector<int>   roi_roi;
@@ -378,10 +378,10 @@ public :
 
    //Histgram
    TH1D *h_events;
-   TH1D *A_eta;
-   TH2D *T_eta;
-   TH2D *B_eta;
-   TH1D *N_eta[15];
+   TH1D *h_rate;
+   TH2D *A_etaphi[16];
+   TH2D *N_etaphi[16];
+   TH2D *E_etaphi[16];
 
    TriggerMenuEstimate(TTree *tree=0);
    virtual ~TriggerMenuEstimate();
@@ -403,6 +403,11 @@ public :
    virtual bool     ForwardEndcap(int source1,int source2,int a,int b,int c,int d);
    virtual bool     BarrelEndcap(int side1,int side2,int source1,int source2,int a,int b,int c,int d);
    virtual void     Tile();
+   virtual int      TileSec(const int sector, const int module);
+   virtual bool     TileOKS(const int side, const int sector, const int roi);
+   virtual void     EIFI();
+   virtual bool     EIFIOKS(const int side, const int sector, const int roi);
+   virtual bool     EIFIRoI(const int side, const int sector, const int roi);
    virtual void     Clear();
    virtual void     Loop(int Nevents);
    virtual Bool_t   Notify();

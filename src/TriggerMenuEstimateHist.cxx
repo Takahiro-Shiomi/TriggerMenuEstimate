@@ -10,22 +10,22 @@
 
 void TriggerMenuEstimate::InitHist()
 {
-    h_events = new TH1D("h_events",";;Events",18,0,18);
-    A_eta = new TH1D("A_eta",";#eta^{RoI};Events",75,-2.7,2.7);
-    T_eta = new TH2D("T_eta",";#eta^{RoI};#phi^{RoI}",100,-2.5,2.5,96,-TMath::Pi(),TMath::Pi());
-    B_eta = new TH2D("B_eta",";#eta^{RoI};#phi^{RoI}",100,-2.5,2.5,96,-TMath::Pi(),TMath::Pi());
-    for(int i=0;i!=15;i++){
-        N_eta[i] = new TH1D(Form("N_eta%d",i),";#eta^{RoI};Events",75,-2.7,2.7);
-    }
+  h_events = new TH1D("h_events",";;Events",18,0,18);
+  h_rate = new TH1D("h_rate",";;Rate [kHz]",15,0,15);
+  for(int i=0;i!=16;i++){
+    A_etaphi[i] = new TH2D(Form("A_etaphi%d",i),Form("pT No.=%d;#eta^{RoI};#phi^{RoI}",i),400,-2.5,2.5,384,-TMath::Pi(),TMath::Pi());
+    N_etaphi[i] = new TH2D(Form("N_etaphi%d",i),Form("pT No.=%d;#eta^{RoI};#phi^{RoI}",i),400,-2.5,2.5,384,-TMath::Pi(),TMath::Pi());
+    E_etaphi[i] = new TH2D(Form("E_etaphi%d",i),Form("pT No.=%d;#eta^{RoI};#phi^{RoI}",i),400,-2.5,2.5,384,-TMath::Pi(),TMath::Pi());
+  }
 }
 
 void TriggerMenuEstimate::End()
 {
-    if(h_events!=0){delete h_events;}
-    if(A_eta!=0){delete A_eta;}
-    if(T_eta!=0){delete T_eta;}
-    if(B_eta!=0){delete B_eta;}
-    for(int i=0;i!=15;i++){
-        if(N_eta[i]!=0){delete N_eta[i];}
-    }
+  if(h_events!=0){delete h_events;}
+  if(h_rate!=0){delete h_rate;}
+  for(int i=0;i!=16;i++){
+    if(A_etaphi[i]!=0){delete A_etaphi[i];}
+    if(N_etaphi[i]!=0){delete N_etaphi[i];}
+    if(E_etaphi[i]!=0){delete E_etaphi[i];}
+  }
 }
