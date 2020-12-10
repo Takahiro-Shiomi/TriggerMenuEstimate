@@ -363,6 +363,17 @@ public :
    TBranch        *b_TGC_Run3_Charge;   //!
 
    //Parameter
+   bool single;
+
+   vector<int> RoI_pt;
+   vector<float> RoI_eta;
+   vector<float> RoI_phi;
+   vector<int>   RoI_sec;
+   vector<int>   RoI_sou;
+   vector<int>   RoI_side;
+   vector<int>   RoI_roi;
+   vector<int>   RoI_inner;
+
    vector<int> roi_pt;
    vector<float> roi_eta;
    vector<float> roi_phi;

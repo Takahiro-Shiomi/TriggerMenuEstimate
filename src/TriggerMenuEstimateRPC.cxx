@@ -17,14 +17,14 @@ void TriggerMenuEstimate::RPC_Run3()
         if(muctpi_bcid->at(j)!=(bcid&0x7))continue;
         
         int rpc_pt=muctpi_thrNumber->at(j);
-        //if(rpc_pt>=5){continue;}
+        if(rpc_pt>=6){single = true;}
         float rpc_eta = (*muctpi_eta)[j];
         float rpc_phi = (*muctpi_phi)[j];
         int   rpc_roi = (*muctpi_roi)[j];
         int   rpc_sector = (*muctpi_sectorID)[j];
         int   rpc_source = (*muctpi_source)[j];
         int   rpc_side = (*muctpi_hemisphere)[j];
-
+        /*
         roi_pt.push_back(rpc_pt);
         roi_eta.push_back(rpc_eta);
         roi_phi.push_back(rpc_phi);
@@ -37,5 +37,6 @@ void TriggerMenuEstimate::RPC_Run3()
         roi_inner.push_back(2);
         roi_station.push_back(true);
         roi_hotroi.push_back(false);
+        */
     }
 }

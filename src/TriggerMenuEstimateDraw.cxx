@@ -63,8 +63,8 @@ void TriggerMenuEstimate::Draw(TString pdf)
     double All = h_events->GetBinContent(1);
     double L12MU4 = h_events->GetBinContent(i+3);
     double x = i;
-    double rate = (L12MU4/All) * 1700;  //L1_MU4 Rate
-    //double rate = (L12MU4/All) * 80;  //L1_2MU4 Rate
+    //double rate = (L12MU4/All) * 1700;  //L1_MU4 Rate
+    double rate = (L12MU4/All) * 80;  //L1_2MU4 Rate
     h_rate->SetBinContent(i+1,rate);
   }
   h_rate->Draw("PL text");
