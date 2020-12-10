@@ -14,6 +14,7 @@ void TriggerMenuEstimate::TGC_Run3()
 {
     for(int j=0;j!=TGC_Run3_n;j++){
         if(TGC_Run3_type->at(j)!=2)continue;
+        if(TGC_Run3_Side->at(j)==1)continue;
 
         int station = TGC_Run3_station->at(j);
         bool flag = HotRoI(j);

@@ -16,28 +16,15 @@ void TriggerMenuEstimate::Draw(TString pdf)
   c1->SetTopMargin(0.20);
   c1->Print(pdf + "[", "pdf");
 
-  A_etaphi[15]->Draw("colz");
+  A_etaphi->Draw("colz");
   c1->Print(pdf,"pdf");
-  N_etaphi[15]->Draw("colz");
-  c1->Print(pdf,"pdf");
-  c1->Clear();
-  E_etaphi[15]->Divide(N_etaphi[15],A_etaphi[15],1,1);
-  E_etaphi[15]->Draw("colz");
+  N_etaphi->Draw("colz");
   c1->Print(pdf,"pdf");
   c1->Clear();
-
-  for(int i=0;i!=15;i++){
-    c1->Divide(2,2);
-    c1->cd(1);
-    A_etaphi[i]->Draw("colz");
-    c1->cd(2);
-    N_etaphi[i]->Draw("colz");
-    c1->cd(3);
-    E_etaphi[i]->Divide(N_etaphi[i],A_etaphi[i],1,1);
-    E_etaphi[i]->Draw("colz");
-    c1->Print(pdf,"pdf");
-    c1->Clear();
-  }
+  E_etaphi->Divide(N_etaphi,A_etaphi,1,1);
+  E_etaphi->Draw("colz");
+  c1->Print(pdf,"pdf");
+  c1->Clear();
 
   h_events->Draw("hist text");
   h_events->GetXaxis()->SetBinLabel(1,"All");

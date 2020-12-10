@@ -379,9 +379,9 @@ public :
    //Histgram
    TH1D *h_events;
    TH1D *h_rate;
-   TH2D *A_etaphi[16];
-   TH2D *N_etaphi[16];
-   TH2D *E_etaphi[16];
+   TH2D *A_etaphi;
+   TH2D *N_etaphi;
+   TH2D *E_etaphi;
 
    TriggerMenuEstimate(TTree *tree=0);
    virtual ~TriggerMenuEstimate();

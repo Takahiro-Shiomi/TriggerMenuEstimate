@@ -12,20 +12,16 @@ void TriggerMenuEstimate::InitHist()
 {
   h_events = new TH1D("h_events",";;Events",18,0,18);
   h_rate = new TH1D("h_rate",";;Rate [kHz]",15,0,15);
-  for(int i=0;i!=16;i++){
-    A_etaphi[i] = new TH2D(Form("A_etaphi%d",i),Form("pT No.=%d;#eta^{RoI};#phi^{RoI}",i),400,-2.5,2.5,384,-TMath::Pi(),TMath::Pi());
-    N_etaphi[i] = new TH2D(Form("N_etaphi%d",i),Form("pT No.=%d;#eta^{RoI};#phi^{RoI}",i),400,-2.5,2.5,384,-TMath::Pi(),TMath::Pi());
-    E_etaphi[i] = new TH2D(Form("E_etaphi%d",i),Form("pT No.=%d;#eta^{RoI};#phi^{RoI}",i),400,-2.5,2.5,384,-TMath::Pi(),TMath::Pi());
-  }
+  A_etaphi = new TH2D("A_etaphi",";#eta^{RoI};#phi^{RoI}",100,-2.5,2.5,96,-TMath::Pi(),TMath::Pi());
+  N_etaphi = new TH2D("N_etaphi",";#eta^{RoI};#phi^{RoI}",100,-2.5,2.5,96,-TMath::Pi(),TMath::Pi());
+  E_etaphi = new TH2D("E_etaphi",";#eta^{RoI};#phi^{RoI}",100,-2.5,2.5,96,-TMath::Pi(),TMath::Pi());
 }
 
 void TriggerMenuEstimate::End()
 {
   if(h_events!=0){delete h_events;}
   if(h_rate!=0){delete h_rate;}
-  for(int i=0;i!=16;i++){
-    if(A_etaphi[i]!=0){delete A_etaphi[i];}
-    if(N_etaphi[i]!=0){delete N_etaphi[i];}
-    if(E_etaphi[i]!=0){delete E_etaphi[i];}
-  }
+  if(A_etaphi!=0){delete A_etaphi;}
+  if(N_etaphi!=0){delete N_etaphi;}
+  if(E_etaphi!=0){delete E_etaphi;}
 }
