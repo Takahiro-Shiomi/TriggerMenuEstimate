@@ -19,6 +19,9 @@ void TriggerMenuEstimate::Draw(TString pdf)
     h_dr->Draw();
     c1->Print(pdf,"pdf");
 
+    I_dr->Draw();
+    c1->Print(pdf,"pdf");
+
     /*
     A_etaphi->Draw("colz");
     c1->Print(pdf,"pdf");
@@ -28,8 +31,14 @@ void TriggerMenuEstimate::Draw(TString pdf)
 
     B_etaphi->Draw("colz");
     c1->Print(pdf,"pdf");
-*/
+    */
     for(int i=0;i!=15;i++){
+    A_etaphi[i]->Draw("colz");
+    c1->Print(pdf,"pdf");
+    c1->Clear();
+    T_etaphi[i]->Draw("colz");
+    c1->Print(pdf,"pdf");
+    c1->Clear();
     E_etaphi[i]->Divide(T_etaphi[i],A_etaphi[i],1,1);
     E_etaphi[i]->Draw("colz");
     c1->Print(pdf,"pdf");

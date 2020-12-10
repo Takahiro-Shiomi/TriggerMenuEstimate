@@ -371,6 +371,8 @@ public :
    vector<float> RoI_eta;
    vector<float> RoI_phi;
    vector<int>   RoI_sec;
+   vector<int>   RoI_sou;
+   vector<int>   RoI_side;
    vector<int>   RoI_roi;
    vector<int>   RoI_inner;
 
@@ -390,6 +392,7 @@ public :
 
    //Histgram
    TH1D *h_dr;
+   TH1D *I_dr;
    TH2D *A_etaphi[15];
    TH2D *T_etaphi[15];
    TH2D *B_etaphi[15];
@@ -423,6 +426,11 @@ public :
    virtual bool     ForwardEndcap(int source1,int source2,int a,int b,int c,int d);
    virtual bool     BarrelEndcap(int side1,int side2,int source1,int source2,int a,int b,int c,int d);
    virtual void     Tile();
+   virtual int      TileSec(const int sector, const int module);
+   virtual bool     TileOKS(const int side, const int sector, const int roi);
+   virtual void     EIFI();
+   virtual bool     EIFIOKS(const int side, const int sector, const int roi);
+   virtual bool     EIFIRoI(const int side, const int sector, const int roi);
    virtual void     Clear();
    virtual void     Loop(int Nevents);
    virtual Bool_t   Notify();

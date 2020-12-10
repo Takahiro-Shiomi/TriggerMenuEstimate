@@ -14,7 +14,7 @@ void TriggerMenuEstimate::TGC_Run3()
 {
     for(int j=0;j!=TGC_Run3_n;j++){
         if(TGC_Run3_type->at(j)!=2)continue;
-        if(!TGC_Run3_IsEndcap->at(j))continue;
+        //if(!TGC_Run3_IsEndcap->at(j))continue;
 
         int station = TGC_Run3_station->at(j);
         bool flag = HotRoI(j);
@@ -31,7 +31,7 @@ void TriggerMenuEstimate::TGC_Run3()
         float TGC_phi=v1.Phi();
 
         int   TGC_roi = (*TGC_Run3_RoI)[j];
-        int   TGC_side = (*TGC_Run3_Side)[j];
+        int   TGC_side = (*TGC_Run3_Side)[j]; //Aside=1,Cside=0
         int   TGC_source;
         if((*TGC_Run3_IsEndcap)[j]){TGC_source=1;}
         else if(!(*TGC_Run3_IsEndcap)[j]){TGC_source=2;}

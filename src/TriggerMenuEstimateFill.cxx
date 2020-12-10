@@ -17,21 +17,26 @@ void TriggerMenuEstimate::FillHist()
             OverlapRemoval();
             Match();
             for(int i=0;i!=(int)roi_pt.size();i++){
-                if(!roi_ovlp.at(i) && roi_match.at(i) && !roi_hotroi.at(i)){
+                if(roi_station.at(i) && !roi_ovlp.at(i) && roi_match.at(i) && !roi_hotroi.at(i)){
                     RoI_eta.push_back(roi_eta.at(i));
                     RoI_phi.push_back(roi_phi.at(i));
                     RoI_pt.push_back(roi_pt.at(i));
                     RoI_sec.push_back(roi_sector.at(i));
+                    RoI_sou.push_back(roi_source.at(i));
+                    RoI_side.push_back(roi_side.at(i));
                     RoI_roi.push_back(roi_roi.at(i));
                     RoI_inner.push_back(roi_inner.at(i));
                 }
             }
             if(RoI_eta.size()!=0){
                 Tile();
+                //EIFI();
                 for(int i=0;i!=(int)RoI_eta.size();i++){
                     A_roi[RoI_pt.at(i)-1]->Fill(RoI_roi.at(i));
                     A_eta[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i));
+                    A_etaphi[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i),RoI_phi.at(i));
                     if(RoI_inner.at(i)==1){
+                        T_etaphi[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i),RoI_phi.at(i));
                         I_roi[RoI_pt.at(i)-1]->Fill(RoI_roi.at(i));
                         I_eta[RoI_pt.at(i)-1]->Fill(RoI_eta.at(i));
                     }
@@ -65,6 +70,8 @@ void TriggerMenuEstimate::Clear()
     RoI_pt.clear();
     RoI_phi.clear();
     RoI_sec.clear();
+    RoI_sou.clear();
+    RoI_side.clear();
     RoI_roi.clear();
     RoI_inner.clear();
 }
